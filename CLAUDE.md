@@ -45,20 +45,26 @@ agi-house-agents-hack/
 ### Frontend
 ```bash
 cd frontend
-npm install               # Install dependencies
-npm run dev               # Start Next.js dev server (http://localhost:3000)
-npm run build             # Production build
-npm run lint              # Run ESLint
+npm install
+npm run dev               # Next.js dev server (http://localhost:3000)
+npm run build
+npm run lint
 ```
 
-### Backend
+### Backend (uv)
 ```bash
-cd src
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt   # If requirements.txt exists
-python3 main.py                   # Run backend
+uv sync                          # Install/sync Python dependencies
+uv run python src/main.py        # Run backend agent
+uv add <package>                  # Add new dependency
 ```
+
+### Code Quality (ruff)
+```bash
+uv run ruff format .
+uv run ruff check .
+uv run ruff check --fix .
+```
+
 
 ## Environment & Config
 
